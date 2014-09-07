@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TableRow;
+import java.util.ArrayList;
 
 /**
  * Created by andre on 9/7/14.
@@ -13,25 +14,24 @@ import android.widget.TableRow;
 public class ScoreActivity extends Activity {
 
     ImageView homeImageView1;
-    ImageView homeImageView2;
-    ImageView homeImageView3;
-
-    ImageView awayImageView1;
-    ImageView awayImageView2;
-    ImageView awayImageView3;
+    MockScoreProvider scoreProvider;
+    ArrayList<Score> currentScores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.score_layout);
 
-        homeImageView1 = (ImageView) findViewById(R.id.homeImageView1);
-        homeImageView2 = (ImageView) findViewById(R.id.homeImageView2);
-        homeImageView3 = (ImageView) findViewById(R.id.homeImageView3);
+        scoreProvider = new MockScoreProvider();
+        currentScores = scoreProvider.getCurrentScores();
 
-        awayImageView1 = (ImageView) findViewById(R.id.awayImageView1);
-        awayImageView2 = (ImageView) findViewById(R.id.awayImageView2);
-        awayImageView3 = (ImageView) findViewById(R.id.awayImageView3);
+
+        //Example on how to initialize a component from an Android layout
+        //Note that homeImageView1 is the id that we gave the component in score_layout.xml
+        homeImageView1 = (ImageView) findViewById(R.id.homeImageView1);
+
+        //Let's try setting the TextViews for some scores here.
+        //Code goes here...
     }
 
     @Override

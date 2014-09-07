@@ -32,7 +32,7 @@ public class Score {
         return this.homeScore;
     }
 
-    private void setHomeScore(int score)
+    public void setHomeScore(int score)
     {
         this.homeScore = score;
     }
@@ -42,32 +42,32 @@ public class Score {
         return this.awayScore;
     }
 
-    private void setAwayScore(int score)
+    public void setAwayScore(int score)
     {
         this.awayScore = score;
     }
 
-    private int getQuarter()
+    public int getQuarter()
     {
         return this.quarter;
     }
 
-    private int getMinutesLeft()
+    public int getMinutesLeft()
     {
         return this.minutesLeft;
     }
 
-    private int getSecondsLeft()
+    public int getSecondsLeft()
     {
         return this.secondsLeft;
     }
 
-    private Team getHomeTeam()
+    public Team getHomeTeam()
     {
         return this.homeTeam;
     }
 
-    private Team getAwayTeam()
+    public Team getAwayTeam()
     {
         return this.awayTeam;
     }
