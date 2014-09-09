@@ -1,5 +1,7 @@
 package org.gitmad.sportsmobile.model;
 
+import android.graphics.Color;
+
 import org.gitmad.sportsmobile.R;
 
 import java.util.ArrayList;
@@ -26,13 +28,17 @@ public class MockScoreProvider {
 
     public MockScoreProvider() {
         //public Team(String long_name, String short_name, String conference, String homeTown)
-        Team ravens = new Team("Baltimore Ravens", "BAL", "AFC North", "Baltimore, MD");
+        Team ravens = new Team("Baltimore Ravens", "BAL", "AFC North", "Baltimore, MD",
+                Color.parseColor("#141F94"));
         ravens.setImageId(R.drawable.ravens);
-        Team bengals = new Team("Cincinnati Bengals", "CIN", "AFC North", "Cincinatti, OH");
+        Team bengals = new Team("Cincinnati Bengals", "CIN", "AFC North", "Cincinatti, OH",
+                Color.parseColor("#F04D22"));
         bengals.setImageId(R.drawable.bengals);
-        Team browns = new Team("Cleveland Browns", "CLE", "AFC North", "Cleveland, OH");
+        Team browns = new Team("Cleveland Browns", "CLE", "AFC North", "Cleveland, OH",
+                Color.parseColor("#E24E05"));
         browns.setImageId(R.drawable.browns);
-        Team steelers = new Team("Pittsburgh Steelers", "PIT", "AFC North", "Pittsburgh, PA");
+        Team steelers = new Team("Pittsburgh Steelers", "PIT", "AFC North", "Pittsburgh, PA",
+                Color.parseColor("#FBA000"));
         steelers.setImageId(R.drawable.steelers);
         afcNorth = new ArrayList<Team>();
         afcNorth.add(ravens);
@@ -40,13 +46,17 @@ public class MockScoreProvider {
         afcNorth.add(browns);
         afcNorth.add(steelers);
 
-        Team texans = new Team("Houston Texans", "HOU", "AFC Sorth", "Houston, TX");
+        Team texans = new Team("Houston Texans", "HOU", "AFC Sorth", "Houston, TX",
+                Color.parseColor("#06192E"));
         texans.setImageId(R.drawable.texans);
-        Team colts = new Team("Indianapolis Colts", "IND", "AFCSouth", "Indianapolis, IN");
+        Team colts = new Team("Indianapolis Colts", "IND", "AFCSouth", "Indianapolis, IN",
+                Color.parseColor("#023C76"));
         colts.setImageId(R.drawable.colts);
-        Team jaguars = new Team("Jacksonville Jaguars", "JAX", "AFC South", "Jacksonville, FL");
+        Team jaguars = new Team("Jacksonville Jaguars", "JAX", "AFC South", "Jacksonville, FL",
+                Color.parseColor("#0F445D"));
         jaguars.setImageId(R.drawable.jaguars);
-        Team titans = new Team("Tennessee Titans", "TEN", "AFC South", "Nashville, TN");
+        Team titans = new Team("Tennessee Titans", "TEN", "AFC South", "Nashville, TN",
+                Color.parseColor("#00265A"));
         titans.setImageId(R.drawable.titans);
         afcSouth = new ArrayList<Team>();
         afcSouth.add(texans);
@@ -54,13 +64,17 @@ public class MockScoreProvider {
         afcSouth.add(jaguars);
         afcSouth.add(titans);
 
-        Team bills = new Team("Buffalo Bills", "BUF", "AFC East", "Buffalo, NY");
+        Team bills = new Team("Buffalo Bills", "BUF", "AFC East", "Buffalo, NY",
+                Color.parseColor("#194787"));
         bills.setImageId(R.drawable.bills);
-        Team dolphins = new Team("Miami Dolphins", "MIA", "AFC East", "Miami,FL");
+        Team dolphins = new Team("Miami Dolphins", "MIA", "AFC East", "Miami,FL",
+                Color.parseColor("#0B7B7C"));
         dolphins.setImageId(R.drawable.dolphins);
-        Team patriots = new Team("New England Patriots", "NE", "AFC East", "Foxborough, MA");
+        Team patriots = new Team("New England Patriots", "NE", "AFC East", "Foxborough, MA",
+                Color.parseColor("#113E90"));
         patriots.setImageId(R.drawable.patriots);
-        Team jets = new Team("New York Jets", "NYJ", "AFC East", "East Rutherford, NY");
+        Team jets = new Team("New York Jets", "NYJ", "AFC East", "East Rutherford, NY",
+                Color.parseColor("#15684C"));
         jets.setImageId(R.drawable.jets);
         afcEast = new ArrayList<Team>();
         afcEast.add(bills);
@@ -87,23 +101,23 @@ public class MockScoreProvider {
         game3.setHomeScore(6);
         game3.setAwayScore(28);
 
-        Game game4 = new Game(texans, colts);
+        Game game4 = new Game(browns, steelers);
         game4.setHomeScore(6);
         game4.setAwayScore(28);
 
-        Game game5 = new Game(texans, colts);
+        Game game5 = new Game(jets, bills);
         game5.setHomeScore(6);
         game5.setAwayScore(28);
 
-        Game game6 = new Game(texans, colts);
+        Game game6 = new Game(bengals, patriots);
         game6.setHomeScore(6);
         game6.setAwayScore(28);
 
-        Game game7 = new Game(texans, colts);
+        Game game7 = new Game(titans, jaguars);
         game7.setHomeScore(6);
         game7.setAwayScore(28);
 
-        Game game8 = new Game(texans, colts);
+        Game game8 = new Game(bills, dolphins);
         game8.setHomeScore(6);
         game8.setAwayScore(28);
 
