@@ -1,14 +1,11 @@
-package org.gitmad.sportsmobile;
+package org.gitmad.sportsmobile.model;
 
-/**
- * Created by Andre Giron on 9/6/14.
- */
 public class Team {
 
-    private String long_name; //exe. Atlanta Falcons
-    private String short_name; //exe. ATL
-    private String conference; //exe. NFC South
-    private String homeTown;   //Atlanta
+    private final String longName; //exe. Atlanta Falcons
+    private final String shortName; //exe. ATL
+    private final String conference; //exe. NFC South
+    private final String homeTown;   //Atlanta
     private int imageId; //exe R.id.falcons
 
     //TODO: Add things like Roster, season record, etc.
@@ -16,8 +13,8 @@ public class Team {
 
     public Team(String long_name, String short_name, String conference, String homeTown)
     {
-        this.long_name = long_name;
-        this.short_name = short_name;
+        this.longName = long_name;
+        this.shortName = short_name;
         this.conference = conference;
         this.homeTown = homeTown;
         this.imageId = 0;
@@ -33,14 +30,14 @@ public class Team {
         return this.imageId;
     }
 
-    public String getShort_name()
+    public String getShortName()
     {
-        return this.short_name;
+        return this.shortName;
     }
 
-    public String getLong_name()
+    public String getLongName()
     {
-        return this.long_name;
+        return this.longName;
     }
 
     public String getConference()
