@@ -1,6 +1,8 @@
 package org.gitmad.sportsmobile.adapter;
 
+import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
@@ -60,6 +62,7 @@ public class GameAdapter extends ArrayAdapter<Game> {
         }
         if (teamList.size() != holder.viewList.size())
             throw new RuntimeException("Team size differs from number of child views.");
+        final StringBuilder teamNamesBuilder = new StringBuilder();
         final int[] colors = new int[teamList.size()];
         for (int i = 0; i < teamList.size(); i++) {
             final Team team = teamList.get(i);
@@ -68,6 +71,8 @@ public class GameAdapter extends ArrayAdapter<Game> {
             final ImageView teamLogo = (ImageView) view.findViewById(R.id.team_logo);
             teamName.setText(team.getLongName());
             teamLogo.setImageResource(team.getImageId());
+            teamNamesBuilder.append(team.getLongName());
+            teamNamesBuilder.append(" ");
             colors[i] = team.getPrimaryColor();
         }
         final StateListDrawable sld = new StateListDrawable();
@@ -79,6 +84,14 @@ public class GameAdapter extends ArrayAdapter<Game> {
             sld.addState(new int[]{android.R.attr.state_pressed}, gradientDrawable);
             convertView.setBackground(sld);
         }
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, teamNamesBuilder.toString());
+                mContext.startActivity(intent);
+            }
+        });
         return convertView;
     }
 }
