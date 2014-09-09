@@ -1,9 +1,9 @@
 <resources>
 
-    <style name="AppTheme" parent="AppThemeBase">
+    <style name="GameListTheme" parent="GameListThemeBase">
     </style>
 
-    <style name="AppThemeBase" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="GameListThemeBase" parent="android:Theme.Holo.Light.DarkActionBar">
     </style>
 
 </resources>
