@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">Sports</string>
+    <string name="new_game">Add Random Game</string>
 
 </resources>

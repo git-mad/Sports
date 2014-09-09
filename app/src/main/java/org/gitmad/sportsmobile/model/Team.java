@@ -1,6 +1,8 @@
 package org.gitmad.sportsmobile.model;
 
-public class Team {
+import java.io.Serializable;
+
+public class Team implements Serializable {
 
     private final String longName; //exe. Atlanta Falcons
     private final String shortName; //exe. ATL

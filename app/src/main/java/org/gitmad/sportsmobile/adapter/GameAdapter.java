@@ -9,6 +9,7 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,11 +25,13 @@ public class GameAdapter extends ArrayAdapter<Game> {
 
     private Context mContext;
     private List<Game> mGameList;
+    private List<Game> mViewedGames;
 
     public GameAdapter(final Context context, final List<Game> gameList) {
         super(context, R.layout.game_row, gameList);
         mContext = context;
         mGameList = gameList;
+        mViewedGames = new ArrayList<Game>(mGameList.size());
     }
 
     private static class ViewHolder {
@@ -92,6 +95,11 @@ public class GameAdapter extends ArrayAdapter<Game> {
                 mContext.startActivity(intent);
             }
         });
+        // assumes that we never have two of the same game in this adapter
+        if (!mViewedGames.contains(game)) {
+            convertView.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.pop_in));
+            mViewedGames.add(game);
+        }
         return convertView;
     }
 }

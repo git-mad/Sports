@@ -24,7 +24,8 @@ public class MockScoreProvider {
     //private ArrayList<Team> nfcEast = new ArrayList<Team>();
     //private ArrayList<Team> nfcWest = new ArrayList<Team>();
 
-    private final ArrayList<Game> scores;
+    private final List<Team> teams;
+    private final ArrayList<Game> games;
 
     public MockScoreProvider() {
         //public Team(String long_name, String short_name, String conference, String homeTown)
@@ -125,21 +126,38 @@ public class MockScoreProvider {
         game9.setHomeScore(60);
         game9.setAwayScore(2899);
 
-        scores = new ArrayList<Game>(10);
-        scores.add(game0);
-        scores.add(game1);
-        scores.add(game2);
-        scores.add(game3);
-        scores.add(game4);
-        scores.add(game5);
-        scores.add(game6);
-        scores.add(game7);
-        scores.add(game8);
-        scores.add(game9);
+        games = new ArrayList<Game>(10);
+        games.add(game0);
+        games.add(game1);
+        games.add(game2);
+        games.add(game3);
+        games.add(game4);
+        games.add(game5);
+        games.add(game6);
+        games.add(game7);
+        games.add(game8);
+        games.add(game9);
+
+        teams = new ArrayList<Team>(12);
+        teams.add(ravens);
+        teams.add(bengals);
+        teams.add(browns);
+        teams.add(steelers);
+        teams.add(texans);
+        teams.add(colts);
+        teams.add(jaguars);
+        teams.add(titans);
+        teams.add(bills);
+        teams.add(dolphins);
+        teams.add(patriots);
+        teams.add(jets);
     }
 
-    public List<Game> getGameList() {
-        return scores;
+    public ArrayList<Game> getGameList() {
+        return games;
     }
 
+    public List<Team> getTeamList() {
+        return teams;
+    }
 }
