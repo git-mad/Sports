@@ -27,9 +27,13 @@ public class MockScoreProvider {
     {
         //public Team(String long_name, String short_name, String conference, String homeTown)
         Team ravens = new Team("Baltimore Ravens", "BAL", "AFC North", "Baltimore, MD");
+        ravens.setImageId(R.drawable.ravens);
         Team bengals = new Team("Cincinnati Bengals", "CIN", "AFC North", "Cincinatti, OH");
+        bengals.setImageId(R.drawable.bengals);
         Team browns = new Team("Cleveland Browns", "CLE", "AFC North", "Cleveland, OH");
+        browns.setImageId(R.drawable.browns);
         Team steelers = new Team("Pittsburgh Steelers", "PIT", "AFC North", "Pittsburgh, PA");
+        steelers.setImageId(R.drawable.steelers);
         afcNorth = new ArrayList<Team>();
         afcNorth.add(ravens);
         afcNorth.add(bengals);
@@ -37,9 +41,13 @@ public class MockScoreProvider {
         afcNorth.add(steelers);
 
         Team texans = new Team("Houston Texans", "HOU", "AFC Sorth", "Houston, TX");
+        texans.setImageId(R.drawable.texans);
         Team colts = new Team("Indianapolis Colts", "IND", "AFCSouth", "Indianapolis, IN");
+        colts.setImageId(R.drawable.colts);
         Team jaguars = new Team("Jacksonville Jaguars", "JAX", "AFC South", "Jacksonville, FL");
+        jaguars.setImageId(R.drawable.jaguars);
         Team titans = new Team("Tennessee Titans", "TEN", "AFC South", "Nashville, TN");
+        titans.setImageId(R.drawable.titans);
         afcSouth = new ArrayList<Team>();
         afcSouth.add(texans);
         afcSouth.add(colts);
@@ -47,9 +55,13 @@ public class MockScoreProvider {
         afcSouth.add(titans);
 
         Team bills = new Team("Buffalo Bills", "BUF", "AFC East", "Buffalo, NY");
+        bills.setImageId(R.drawable.bills);
         Team dolphins = new Team("Miami Dolphins", "MIA", "AFC East", "Miami,FL");
+        dolphins.setImageId(R.drawable.dolphins);
         Team patriots = new Team("New England Patriots", "NE", "AFC East", "Foxborough, MA");
+        patriots.setImageId(R.drawable.patriots);
         Team jets = new Team("New York Jets", "NYJ", "AFC East", "East Rutherford, NY");
+        jets.setImageId(R.drawable.jets);
         afcEast = new ArrayList<Team>();
         afcEast.add(bills);
         afcEast.add(dolphins);
