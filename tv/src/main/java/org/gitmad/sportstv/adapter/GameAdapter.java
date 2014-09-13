@@ -85,6 +85,7 @@ public class GameAdapter extends ArrayAdapter<Game> {
             gradientDrawable.setColors(colors);
             gradientDrawable.setAlpha(100);
             sld.addState(new int[]{android.R.attr.state_pressed}, gradientDrawable);
+            sld.addState(new int[]{android.R.attr.state_checked}, gradientDrawable);
             convertView.setBackground(sld);
         }
         convertView.setOnClickListener(new View.OnClickListener() {

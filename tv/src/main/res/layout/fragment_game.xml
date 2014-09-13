@@ -7,4 +7,5 @@
     android:layout_height="match_parent"
     android:padding="@dimen/team_grid_padding"
     android:clipToPadding="false"
-    android:scrollbarStyle="outsideOverlay"/>
+    android:scrollbarStyle="outsideOverlay"
+    android:choiceMode="singleChoice"/>
