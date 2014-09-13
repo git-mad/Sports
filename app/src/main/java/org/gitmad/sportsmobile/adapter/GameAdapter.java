@@ -23,9 +23,9 @@ import java.util.List;
 
 public class GameAdapter extends ArrayAdapter<Game> {
 
-    private Context mContext;
-    private List<Game> mGameList;
-    private List<Game> mViewedGames;
+    private final Context mContext;
+    private final List<Game> mGameList;
+    private final List<Game> mViewedGames;
 
     public GameAdapter(final Context context, final List<Game> gameList) {
         super(context, R.layout.game_row, gameList);
@@ -36,11 +36,7 @@ public class GameAdapter extends ArrayAdapter<Game> {
 
     private static class ViewHolder {
 
-        private final List<View> viewList;
-
-        public ViewHolder(final View view, final List<View> viewList) {
-            this.viewList = viewList;
-        }
+        public ViewHolder(final View view) {}
     }
 
     @Override
@@ -51,25 +47,29 @@ public class GameAdapter extends ArrayAdapter<Game> {
         final ViewHolder holder;
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.game_row, parent, false);
-            final List<View> viewList = new ArrayList<View>(teamList.size());
-            for (Team ignored : teamList) {
-                final View view = layoutInflater.inflate(R.layout.game_item,
-                        (ViewGroup) convertView, false);
-                viewList.add(view);
-                ((ViewGroup) convertView).addView(view);
-            }
-            holder = new ViewHolder(convertView, viewList);
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        if (teamList.size() != holder.viewList.size())
+
+        ((ViewGroup) convertView).removeAllViews();
+        final List<View> viewList = new ArrayList<View>(teamList.size());
+        for (Team ignored : teamList) {
+            final View view = layoutInflater.inflate(R.layout.game_item,
+                    (ViewGroup) convertView, false);
+            viewList.add(view);
+            ((ViewGroup) convertView).addView(view);
+        }
+
+        if (teamList.size() != viewList.size())
             throw new RuntimeException("Team size differs from number of child views.");
+
         final StringBuilder teamNamesBuilder = new StringBuilder();
         final int[] colors = new int[teamList.size()];
         for (int i = 0; i < teamList.size(); i++) {
             final Team team = teamList.get(i);
-            final View view = holder.viewList.get(i);
+            final View view = viewList.get(i);
             final TextView teamName = (TextView) view.findViewById(R.id.team_name);
             final ImageView teamLogo = (ImageView) view.findViewById(R.id.team_logo);
             teamName.setText(team.getLongName());
@@ -97,8 +97,8 @@ public class GameAdapter extends ArrayAdapter<Game> {
         });
         // assumes that we never have two of the same game in this adapter
         if (!mViewedGames.contains(game)) {
-            convertView.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.pop_in));
             mViewedGames.add(game);
+            convertView.setAnimation(AnimationUtils.loadAnimation(mContext, R.anim.pop_in));
         }
         return convertView;
     }
