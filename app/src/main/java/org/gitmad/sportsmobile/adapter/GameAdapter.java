@@ -36,7 +36,7 @@ public class GameAdapter extends ArrayAdapter<Game> {
 
     private static class ViewHolder {
 
-        public ViewHolder(final View view) {}
+        private ViewHolder(final View view) {}
     }
 
     @Override

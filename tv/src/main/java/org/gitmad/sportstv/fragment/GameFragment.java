@@ -8,9 +8,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.gitmad.sportstv.R;
+import org.gitmad.sportstv.activity.GameActivity;
 import org.gitmad.sportstv.adapter.GameAdapter;
 import org.gitmad.sportstv.model.Game;
 import org.gitmad.sportstv.model.MockScoreProvider;
@@ -33,6 +35,13 @@ public class GameFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        final MockScoreProvider mockScoreProvider = new MockScoreProvider();
+        if (savedInstanceState == null) {
+            mGameList = mockScoreProvider.getGameList();
+        } else {
+            mGameList = savedInstanceState.getParcelableArrayList(KEY_GAME_LIST);
+        }
+        mTeamList = mockScoreProvider.getTeamList();
     }
 
     @Override
@@ -44,15 +53,19 @@ public class GameFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        final MockScoreProvider mockScoreProvider = new MockScoreProvider();
-        if (savedInstanceState == null) {
-            mGameList = mockScoreProvider.getGameList();
-        } else {
-            mGameList = savedInstanceState.getParcelableArrayList(KEY_GAME_LIST);
-        }
-        mTeamList = mockScoreProvider.getTeamList();
         mGameAdapter = new GameAdapter(getActivity(), mGameList);
         mListView.setAdapter(mGameAdapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ((GameActivity) getActivity())
+                        .setScoreText(((GameAdapter.ViewHolder) view.getTag()).scoreText);
+            }
+        });
+        if (savedInstanceState == null && !mGameList.isEmpty()) {
+            mListView.performItemClick(mGameAdapter.getView(0, null, null),
+                    0, mGameAdapter.getItemId(0));
+        }
     }
 
     @Override
@@ -74,6 +87,7 @@ public class GameFragment extends Fragment {
         game.setAwayScore(rand.nextInt(101));
         mGameList.add(0, game);
         mGameAdapter.notifyDataSetChanged();
+        mListView.setItemChecked(mListView.getCheckedItemPosition() + 1, true);
     }
 
     @Override

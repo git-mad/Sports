@@ -33,6 +33,13 @@ public class GameFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        final MockScoreProvider mockScoreProvider = new MockScoreProvider();
+        if (savedInstanceState == null) {
+            mGameList = mockScoreProvider.getGameList();
+        } else {
+            mGameList = savedInstanceState.getParcelableArrayList(KEY_GAME_LIST);
+        }
+        mTeamList = mockScoreProvider.getTeamList();
     }
 
     @Override
@@ -44,13 +51,6 @@ public class GameFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        final MockScoreProvider mockScoreProvider = new MockScoreProvider();
-        if (savedInstanceState == null) {
-            mGameList = mockScoreProvider.getGameList();
-        } else {
-            mGameList = savedInstanceState.getParcelableArrayList(KEY_GAME_LIST);
-        }
-        mTeamList = mockScoreProvider.getTeamList();
         mGameAdapter = new GameAdapter(getActivity(), mGameList);
         mListView.setAdapter(mGameAdapter);
     }

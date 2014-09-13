@@ -1,8 +1,6 @@
 package org.gitmad.sportstv.adapter;
 
-import android.app.SearchManager;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
@@ -34,9 +32,11 @@ public class GameAdapter extends ArrayAdapter<Game> {
         mViewedGames = new ArrayList<Game>(mGameList.size());
     }
 
-    private static class ViewHolder {
+    public static class ViewHolder {
 
-        public ViewHolder(final View view) {}
+        public CharSequence scoreText;
+
+        private ViewHolder(final View view) {}
     }
 
     @Override
@@ -65,7 +65,6 @@ public class GameAdapter extends ArrayAdapter<Game> {
         if (teamList.size() != viewList.size())
             throw new RuntimeException("Team size differs from number of child views.");
 
-        final StringBuilder teamNamesBuilder = new StringBuilder();
         final int[] colors = new int[teamList.size()];
         for (int i = 0; i < teamList.size(); i++) {
             final Team team = teamList.get(i);
@@ -74,8 +73,6 @@ public class GameAdapter extends ArrayAdapter<Game> {
             final ImageView teamLogo = (ImageView) view.findViewById(R.id.team_logo);
             teamName.setText(team.getLongName());
             teamLogo.setImageResource(team.getImageId());
-            teamNamesBuilder.append(team.getLongName());
-            teamNamesBuilder.append(" ");
             colors[i] = team.getPrimaryColor();
         }
         final StateListDrawable sld = new StateListDrawable();
@@ -85,16 +82,10 @@ public class GameAdapter extends ArrayAdapter<Game> {
             gradientDrawable.setColors(colors);
             gradientDrawable.setAlpha(100);
             sld.addState(new int[]{android.R.attr.state_pressed}, gradientDrawable);
+            sld.addState(new int[]{android.R.attr.state_checked}, gradientDrawable);
             convertView.setBackground(sld);
         }
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-                intent.putExtra(SearchManager.QUERY, teamNamesBuilder.toString());
-                mContext.startActivity(intent);
-            }
-        });
+        holder.scoreText = game.getHomeScore() + "  --  " + game.getAwayScore();
         // assumes that we never have two of the same game in this adapter
         if (!mViewedGames.contains(game)) {
             mViewedGames.add(game);
