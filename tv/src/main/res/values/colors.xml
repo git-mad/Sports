@@ -5,4 +5,7 @@
     <color name="sports_orange">#ff9307</color>
     <color name="sports_green">#3d8a0a</color>
 
+    <color name="sports_orange_transparent">#88ff9307</color>
+    <color name="sports_green_transparent">#883d8a0a</color>
+
 </resources>
