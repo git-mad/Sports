@@ -12,3 +12,6 @@ Current Lecture Slides can be found here:
 
 1. Activity Lifecycle and Layouts:
 https://docs.google.com/presentation/d/1hjcIyS1_iWgQ6YPHOCpeJV_J0oW19baIcXs1z_AhJz4/edit?usp=sharing
+
+2. ListView, Fragments, ViewPager:
+https://docs.google.com/presentation/d/1dpgZ96COrnbEkei45K1o82Ojymx1M-9i4Fk6FAZbjJ4/edit?usp=sharing
