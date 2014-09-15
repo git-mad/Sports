@@ -80,9 +80,15 @@ public class SplashActivity extends Activity {
         mViewPagerIndicator.setRadius(resources.getDimension(R.dimen.splash_indicator_radius));
         mViewPagerIndicator.setFillColor(resources.getColor(R.color.sports_orange));
         mViewPagerIndicator.setStrokeColor(resources.getColor(R.color.sports_green));
+        final View pic0 = findViewById(R.id.pic_0);
+        final View pic1 = findViewById(R.id.pic_1);
         mViewPagerIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i2) {}
+            public void onPageScrolled(int i, float v, int i2) {
+                final float var = v * 360;
+                pic0.setRotation(var);
+                pic1.setRotation(var);
+            }
 
             @Override
             public void onPageSelected(int i) {

@@ -6,6 +6,8 @@
     <dimen name="splash_text_size">14sp</dimen>
     <dimen name="splash_text_padding_left">16dp</dimen>
     <dimen name="splash_text_padding_right">16dp</dimen>
+    <dimen name="splash_team_pic_size">96dp</dimen>
+    <dimen name="splash_pic_padding">14dp</dimen>
     <dimen name="splash_indicator_radius">10dp</dimen>
 
 </resources>

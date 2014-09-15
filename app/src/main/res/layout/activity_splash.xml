@@ -6,6 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/pic_0"
+            android:layout_width="@dimen/splash_team_pic_size"
+            android:layout_height="@dimen/splash_team_pic_size"
+            android:padding="@dimen/splash_pic_padding"
+            android:src="@drawable/bengals"/>
+
+        <ImageView
+            android:id="@+id/pic_1"
+            android:layout_width="@dimen/splash_team_pic_size"
+            android:layout_height="@dimen/splash_team_pic_size"
+            android:padding="@dimen/splash_pic_padding"
+            android:src="@drawable/browns"/>
+
+     </LinearLayout>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/splash_pager"
         android:layout_width="match_parent"
