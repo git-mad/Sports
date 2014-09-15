@@ -29,6 +29,13 @@
 
      </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/splash_divider_margin_horizontal"
+        android:layout_marginRight="@dimen/splash_divider_margin_horizontal"
+        android:background="@android:color/darker_gray" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/splash_pager"
         android:layout_width="match_parent"

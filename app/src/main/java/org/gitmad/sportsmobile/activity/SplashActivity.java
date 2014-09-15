@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.viewpagerindicator.CirclePageIndicator;
@@ -43,13 +44,13 @@ public class SplashActivity extends Activity {
         mAdapter = new PagerAdapter() {
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
-                final ViewPager.LayoutParams layoutParams = new ViewPager.LayoutParams();
-                layoutParams.width = ViewPager.LayoutParams.WRAP_CONTENT;
-                layoutParams.height = ViewPager.LayoutParams.WRAP_CONTENT;
-                layoutParams.gravity = Gravity.CENTER;
+                final ScrollView.LayoutParams layoutParamsText
+                        = new ScrollView.LayoutParams(ScrollView.LayoutParams.WRAP_CONTENT,
+                        ScrollView.LayoutParams.WRAP_CONTENT, Gravity.CENTER);
                 final int textRes = position == 0
                         ? R.string.splash_text_0 : R.string.splash_text_1;
                 final TextView textView = new TextView(SplashActivity.this);
+                textView.setLayoutParams(layoutParamsText);
                 textView.setText(textRes);
                 textView.setTextSize(resources.getDimension(R.dimen.splash_text_size));
                 textView.setPadding(
@@ -58,8 +59,14 @@ public class SplashActivity extends Activity {
                         (int) resources.getDimension(R.dimen.splash_text_padding_right),
                         0);
                 textView.setGravity(Gravity.CENTER);
-                container.addView(textView, 0);
-                return textView;
+                final ViewPager.LayoutParams layoutParamsScroll = new ViewPager.LayoutParams();
+                layoutParamsScroll.width = ViewPager.LayoutParams.MATCH_PARENT;
+                layoutParamsScroll.height = ViewPager.LayoutParams.MATCH_PARENT;
+                final ScrollView scrollView = new ScrollView(SplashActivity.this);
+                scrollView.setLayoutParams(layoutParamsScroll);
+                scrollView.addView(textView);
+                container.addView(scrollView, 0);
+                return scrollView;
             }
 
             @Override public void destroyItem(ViewGroup container, int position,

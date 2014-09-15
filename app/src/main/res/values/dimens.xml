@@ -9,5 +9,6 @@
     <dimen name="splash_team_pic_size">96dp</dimen>
     <dimen name="splash_pic_padding">14dp</dimen>
     <dimen name="splash_indicator_radius">10dp</dimen>
+    <dimen name="splash_divider_margin_horizontal">14dp</dimen>
 
 </resources>
