@@ -3,6 +3,8 @@ package org.gitmad.sportsmobile.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.PagerAdapter;
@@ -92,9 +94,22 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onPageSelected(int i) {
-                final int textRes = i == 0
-                        ? R.string.splash_button_skip : R.string.splash_button_go;
+                final int textRes;
+                final int backgroundRes;
+                if (i == 0) {
+                    textRes = R.string.splash_button_skip;
+                    backgroundRes = R.drawable.btn_selector_green;
+                } else {
+                    backgroundRes = R.drawable.btn_selector_orange;
+                    textRes = R.string.splash_button_go;
+                }
                 mLeaveButton.setText(textRes);
+                final Drawable background = resources.getDrawable(backgroundRes);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    mLeaveButton.setBackground(background);
+                } else {
+                    mLeaveButton.setBackgroundDrawable(background);
+                }
             }
 
             @Override
