@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">sportsmobile</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Sports</string>
+    <string name="new_game">Add Random Game</string>
+
+    <string name="splash_text_0">Hiya, and welcome to the best <b>Sports</b> experience ever!
+        \nSwipe to get started.</string>
+    <string name="splash_text_1">Find and follow your favorite teams.
+        \nAlright, we\'re done. <b>Go, go, go!</b></string>
+    <string name="splash_button_skip">Skip</string>
+    <string name="splash_button_go">Let\'s Start</string>
 
 </resources>

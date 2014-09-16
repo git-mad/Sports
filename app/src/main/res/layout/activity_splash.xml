@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/pic_0"
+            android:layout_width="@dimen/splash_team_pic_size"
+            android:layout_height="@dimen/splash_team_pic_size"
+            android:padding="@dimen/splash_pic_padding"
+            android:src="@drawable/bengals"/>
+
+        <ImageView
+            android:id="@+id/pic_1"
+            android:layout_width="@dimen/splash_team_pic_size"
+            android:layout_height="@dimen/splash_team_pic_size"
+            android:padding="@dimen/splash_pic_padding"
+            android:src="@drawable/browns"/>
+
+     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/splash_divider_margin_horizontal"
+        android:layout_marginRight="@dimen/splash_divider_margin_horizontal"
+        android:background="@android:color/darker_gray" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/splash_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/splash_indicator_radius"/>
+
+    <Button
+        android:id="@+id/leave_splash_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector_green"
+        android:text="@string/splash_button_skip"/>
+
+</LinearLayout>
