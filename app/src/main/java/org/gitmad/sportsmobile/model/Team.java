@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Team implements Serializable {
 
+    private final long id;
     private final String longName; //exe. Atlanta Falcons
     private final String shortName; //exe. ATL
     private final String conference; //exe. NFC South
@@ -14,9 +15,10 @@ public class Team implements Serializable {
     //TODO: Add things like Roster, season record, etc.
     //Each of these will have to be either mocked now, or can be incorporated into the app later.
 
-    public Team(String long_name, String short_name, String conference, String homeTown,
+    public Team(long id, String long_name, String short_name, String conference, String homeTown,
                 int primaryColor)
     {
+        this.id = id;
         this.longName = long_name;
         this.shortName = short_name;
         this.conference = conference;
@@ -25,6 +27,7 @@ public class Team implements Serializable {
         this.imageId = 0;
     }
 
+    public long getId() {return this.id;}
     public void setImageId(int imageId)
     {
         this.imageId = imageId;

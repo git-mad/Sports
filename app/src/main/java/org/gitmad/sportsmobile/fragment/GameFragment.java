@@ -16,6 +16,8 @@ import org.gitmad.sportsmobile.model.Game;
 import org.gitmad.sportsmobile.model.MockScoreProvider;
 import org.gitmad.sportsmobile.model.Team;
 
+import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -27,19 +29,20 @@ public class GameFragment extends Fragment {
     private ListView mListView;
     private GameAdapter mGameAdapter;
     private ArrayList<Game> mGameList;
-    private List<Team> mTeamList;
+    private ArrayList<Team> mTeamList;
+    private MockScoreProvider mockScoreProvider;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        final MockScoreProvider mockScoreProvider = new MockScoreProvider();
+        mockScoreProvider = new MockScoreProvider(this.getActivity());
         if (savedInstanceState == null) {
-            mGameList = mockScoreProvider.getGameList();
+            mGameList = (ArrayList<Game>)mockScoreProvider.getGameList();
         } else {
             mGameList = savedInstanceState.getParcelableArrayList(KEY_GAME_LIST);
         }
-        mTeamList = mockScoreProvider.getTeamList();
+        mTeamList = (ArrayList<Team>)mockScoreProvider.getTeamList();
     }
 
     @Override
@@ -69,11 +72,13 @@ public class GameFragment extends Fragment {
             index0 = rand.nextInt(mTeamList.size());
             index1 = rand.nextInt(mTeamList.size());
         }
-        final Game game = new Game(mTeamList.get(index0), mTeamList.get(index1));
-        game.setHomeScore(rand.nextInt(101));
-        game.setAwayScore(rand.nextInt(101));
-        mGameList.add(0, game);
-        mGameAdapter.notifyDataSetChanged();
+            final Game game =  mockScoreProvider.addGame(mTeamList.get(index0), mTeamList.get(index1), rand.nextInt(101), rand.nextInt(101), rand.nextInt(4), rand.nextInt(60),rand.nextInt(60));
+            if(game!=null) {
+                mGameList.add(0, game);
+                mGameAdapter.notifyDataSetChanged();
+            }
+
+
     }
 
     @Override
