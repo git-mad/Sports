@@ -3,6 +3,9 @@ package org.gitmad.sportsmobile.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Color;
+
+import org.gitmad.sportsmobile.R;
 
 /**
  * Created by Alex on 9/21/2014.
@@ -60,8 +63,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_CONFERENCE+ " text not null, "
             + COLUMN_HOMETOWN+ " text not null, "
             + COLUMN_COLOR+ " integer not null, "
-            + COLUMN_IMAGEID+ " integer not null);"
-            + "create table "
+            + COLUMN_IMAGEID+ " integer not null);";
+    private static final String DATABASE_CREATE_GAMES =
+            "create table "
             +TABLE_GAMES + "("
             + COLUMN_ID+ " integer primary key autoincrement, "
             + COLUMN_HOME_SCORE+" integer not null, "
@@ -70,11 +74,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMN_MINUTES+"  integer not null, "
             + COLUMN_SECONDS+" integer not null, "
             + COLUMN_HOME_ID+" integer not null, "
-            + COLUMN_AWAY_ID+" integer not null, "
-            +"FOREIGN KEY ("+COLUMN_AWAY_ID+") REFERENCES "+ TABLE_TEAMS+"("+COLUMN_ID+"), "
-            +"FOREIGN KEY ("+COLUMN_HOME_ID+") REFERENCES "+ TABLE_TEAMS+"("+COLUMN_ID+"));";
+            + COLUMN_AWAY_ID+" integer not null);";
 
-    private static final String DATABASE_SEED = "";
+
 
 
     public MySQLiteHelper(Context context)
@@ -86,7 +88,45 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase)
     {
         sqLiteDatabase.execSQL(DATABASE_CREATE);
-        sqLiteDatabase.execSQL(DATABASE_SEED);
+        sqLiteDatabase.execSQL(DATABASE_CREATE_GAMES);
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Baltimore Ravens\", \"BAL\", \"AFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.ravens+"); ");
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Cleveland Browns\", \"CLE\", \"AFC NORTH\",\"Cleveland, OH\", "+ Color.parseColor("#E24E05")+", "+ R.drawable.browns+"); ");
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Pittsburgh Steelers\", \"PIT\", \"AFC NORTH\",\"Pittsburgh, PA\", "+ Color.parseColor("#FBA000")+", "+ R.drawable.steelers+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Houston Texans\", \"HOU\", \"AFC SOUTH\",\"Houston, TX\", "+ Color.parseColor("#06192E")+", "+ R.drawable.texans+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Indianapolis Colts\", \"IND\", \"AFC SOUTH\",\"Indianapolis, MD\", "+ Color.parseColor("#023C76")+", "+ R.drawable.colts+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Jacksonville Jaguars\", \"JAX\", \"AFC South\",\"Jacksonville, FL\", "+ Color.parseColor("#0F445D")+", "+ R.drawable.jaguars+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Tennessee Titans\", \"TEN\", \"AFC SOUTH\",\"Nashville, TN\", "+ Color.parseColor("#00265A")+", "+ R.drawable.titans+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Baltimore Ravens\", \"BAL\", \"AFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.ravens+"); ");
+
 
         /*Team ravens = new Team("Baltimore Ravens", "BAL", "AFC North", "Baltimore, MD",
                 Color.parseColor("#141F94"));

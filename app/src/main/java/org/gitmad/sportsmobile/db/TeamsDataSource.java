@@ -71,7 +71,7 @@ public class TeamsDataSource
     public List<Team> getAllTeams()
     {
         List<Team> teams = new ArrayList<Team>();
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_TEAMS, allColumns, null, null, null, null, null);
+        Cursor cursor = database.rawQuery("select * from "+MySQLiteHelper.TABLE_TEAMS, null);
         cursor.moveToFirst();
         while(!cursor.isAfterLast())
         {
