@@ -12,17 +12,21 @@ import java.util.List;
  */
 public class Game implements Parcelable {
 
+
+    private long id;
+
     private int homeScore;
     private int awayScore;
 
-    private final int quarter; // Current quarter that the game is in.
-    private final int minutesLeft; // How many minutes left in the quarter
-    private final int secondsLeft;
+    private int quarter; // Current quarter that the game is in.
+    private int minutesLeft; // How many minutes left in the quarter
+    private int secondsLeft;
 
     private final Team homeTeam;
     private final Team awayTeam;
 
-    public Game(final Team homeTeam, final Team awayTeam) {
+    public Game(long id, final Team homeTeam, final Team awayTeam) {
+        this.id = id;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.quarter = 1;
@@ -44,6 +48,7 @@ public class Game implements Parcelable {
         this.awayTeam = awayTeam;
     }
 
+    public long getId() {return id;}
     public int getHomeScore()
     {
         return this.homeScore;
@@ -69,15 +74,21 @@ public class Game implements Parcelable {
         return this.quarter;
     }
 
+    public void setQuarter(int quarter){this.quarter=quarter;}
+
     public int getMinutesLeft()
     {
         return this.minutesLeft;
     }
 
+    public void setMinutesLeft(int minutes) {this.minutesLeft = minutes;}
+
     public int getSecondsLeft()
     {
         return this.secondsLeft;
     }
+
+    public void setSecondsLeft(int seconds) {this.secondsLeft = seconds;}
 
     public Team getHomeTeam()
     {
