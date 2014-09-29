@@ -16,6 +16,9 @@ https://docs.google.com/presentation/d/1hjcIyS1_iWgQ6YPHOCpeJV_J0oW19baIcXs1z_Ah
 2. ListView, Fragments, ViewPager:
 https://docs.google.com/presentation/d/1dpgZ96COrnbEkei45K1o82Ojymx1M-9i4Fk6FAZbjJ4/edit?usp=sharing
 
+5. Input Controls and Events:
+https://docs.google.com/presentation/d/1ZDReCRJsDU3v8Z2lKmyU_CTsJSg4smfPtFmV8qNSEZs/edit?usp=sharing
+
 Contributing:
 -Pull latest changes from master
 git pull origin master
