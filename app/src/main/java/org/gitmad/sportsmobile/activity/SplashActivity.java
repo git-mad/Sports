@@ -133,7 +133,7 @@ public class SplashActivity extends Activity {
     }
 
     private void leave() {
-        startActivity(new Intent(this, GameActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }
