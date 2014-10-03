@@ -22,12 +22,8 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" >
-        </activity>
-        <activity
-            android:name=".VerifyLoginActivity"
-            android:label="@string/title_activity_verify_login" >
         </activity>
     </application>
 
