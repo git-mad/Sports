@@ -89,12 +89,12 @@ public class GamesDataSource
         Team homeTeam = teamDS.getTeam(cursor.getLong(6));
         Team awayTeam = teamDS.getTeam(cursor.getLong(7));
         teamDS.close();
-        Game game = new Game(cursor.getLong(0), homeTeam, awayTeam);
+        /*Game game = new Game(cursor.getLong(0), homeTeam, awayTeam);
         game.setHomeScore(cursor.getInt(1));
         game.setAwayScore(cursor.getInt(2));
         game.setQuarter(cursor.getInt(3));
         game.setMinutesLeft(cursor.getInt(4));
-        game.setSecondsLeft(cursor.getInt(5));
-        return game;
+        game.setSecondsLeft(cursor.getInt(5));*/
+        return null;
     }
 }

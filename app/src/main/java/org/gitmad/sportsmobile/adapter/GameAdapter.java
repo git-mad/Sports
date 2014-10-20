@@ -42,7 +42,8 @@ public class GameAdapter extends ArrayAdapter<Game> {
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
         final Game game = mGameList.get(position);
-        final List<Team> teamList = game.getTeamList();
+        final Team homeTeam = game.getHomeTeam();
+        final Team awayTeam = game.getAwayTeam();
         final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         final ViewHolder holder;
         if (convertView == null) {
@@ -54,30 +55,41 @@ public class GameAdapter extends ArrayAdapter<Game> {
         }
 
         ((ViewGroup) convertView).removeAllViews();
-        final List<View> viewList = new ArrayList<View>(teamList.size());
-        for (Team ignored : teamList) {
+        final List<View> viewList = new ArrayList<View>(2);
+        for (int i=0; i<2; i++) {
             final View view = layoutInflater.inflate(R.layout.game_item,
                     (ViewGroup) convertView, false);
             viewList.add(view);
             ((ViewGroup) convertView).addView(view);
         }
 
-        if (teamList.size() != viewList.size())
-            throw new RuntimeException("Team size differs from number of child views.");
+
 
         final StringBuilder teamNamesBuilder = new StringBuilder();
-        final int[] colors = new int[teamList.size()];
-        for (int i = 0; i < teamList.size(); i++) {
-            final Team team = teamList.get(i);
-            final View view = viewList.get(i);
-            final TextView teamName = (TextView) view.findViewById(R.id.team_name);
-            final ImageView teamLogo = (ImageView) view.findViewById(R.id.team_logo);
-            teamName.setText(team.getLongName());
-            teamLogo.setImageResource(team.getImageId());
-            teamNamesBuilder.append(team.getLongName());
-            teamNamesBuilder.append(" ");
-            colors[i] = team.getPrimaryColor();
-        }
+        final int[] colors = new int[2];
+
+        View view = viewList.get(0);
+        TextView teamName = (TextView) view.findViewById(R.id.team_name);
+        ImageView teamLogo = (ImageView) view.findViewById(R.id.team_logo);
+        TextView teamScore = (TextView) view.findViewById(R.id.score);
+        teamName.setText(homeTeam.getLongName());
+        teamLogo.setImageResource(homeTeam.getImageId());
+        teamScore.setText(Integer.toString(game.getHomeScore()));
+        teamNamesBuilder.append(homeTeam.getLongName());
+        teamNamesBuilder.append(" ");
+        colors[0] = homeTeam.getPrimaryColor();
+
+        view = viewList.get(1);
+        teamName = (TextView) view.findViewById(R.id.team_name);
+        teamLogo = (ImageView) view.findViewById(R.id.team_logo);
+        teamScore = (TextView) view.findViewById(R.id.score);
+        teamName.setText(awayTeam.getLongName());
+        teamScore.setText(Integer.toString(game.getAwayScore()));
+        teamLogo.setImageResource(awayTeam.getImageId());
+        teamNamesBuilder.append(awayTeam.getLongName());
+        teamNamesBuilder.append(" ");
+        colors[1] = awayTeam.getPrimaryColor();
+
         final StateListDrawable sld = new StateListDrawable();
         final GradientDrawable gradientDrawable = new GradientDrawable();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {

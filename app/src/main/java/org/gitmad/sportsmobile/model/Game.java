@@ -18,32 +18,19 @@ public class Game implements Parcelable {
     private int homeScore;
     private int awayScore;
 
-    private int quarter; // Current quarter that the game is in.
-    private int minutesLeft; // How many minutes left in the quarter
-    private int secondsLeft;
+    private String clock;
 
     private final Team homeTeam;
     private final Team awayTeam;
 
-    public Game(long id, final Team homeTeam, final Team awayTeam) {
-        this.id = id;
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
-        this.quarter = 1;
-        this.minutesLeft = 15;
-        this.secondsLeft = 0;
-        this.homeScore = 0;
-        this.awayScore = 0;
-    }
 
-    private Game(final Team homeTeam, final Team awayTeam,
+
+    public Game(final Team homeTeam, final Team awayTeam,
                  final int homeScore, final int awayScore,
-                 final int quarter, final int minutesLeft, final int secondsLeft) {
+                 final String clock) {
         this.homeScore = homeScore;
         this.awayScore = awayScore;
-        this.quarter = quarter;
-        this.minutesLeft = minutesLeft;
-        this.secondsLeft = secondsLeft;
+        this.clock = clock;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
     }
@@ -69,26 +56,10 @@ public class Game implements Parcelable {
         this.awayScore = score;
     }
 
-    public int getQuarter()
+    public String getClock()
     {
-        return this.quarter;
+        return clock;
     }
-
-    public void setQuarter(int quarter){this.quarter=quarter;}
-
-    public int getMinutesLeft()
-    {
-        return this.minutesLeft;
-    }
-
-    public void setMinutesLeft(int minutes) {this.minutesLeft = minutes;}
-
-    public int getSecondsLeft()
-    {
-        return this.secondsLeft;
-    }
-
-    public void setSecondsLeft(int seconds) {this.secondsLeft = seconds;}
 
     public Team getHomeTeam()
     {
@@ -116,9 +87,7 @@ public class Game implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(homeScore);
         out.writeInt(awayScore);
-        out.writeInt(quarter);
-        out.writeInt(minutesLeft);
-        out.writeInt(secondsLeft);
+        out.writeString(clock);
         out.writeSerializable(homeTeam);
         out.writeSerializable(awayTeam);
     }
@@ -128,14 +97,12 @@ public class Game implements Parcelable {
         public Game createFromParcel(Parcel in) {
             final int homeScore = in.readInt();
             final int awayScore = in.readInt();
-            final int quarter = in.readInt();
-            final int minutesLeft = in.readInt();
-            final int secondsLeft = in.readInt();
+            final String clock = in.readString();
             final Team homeTeam = (Team) in.readSerializable();
             final Team awayTeam = (Team) in.readSerializable();
             return new Game(homeTeam, awayTeam,
                     homeScore, awayScore,
-                    quarter, minutesLeft, secondsLeft);
+                    clock);
         }
 
         public Game[] newArray(int size) {
