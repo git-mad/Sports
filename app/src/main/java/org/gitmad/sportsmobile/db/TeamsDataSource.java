@@ -113,4 +113,16 @@ public class TeamsDataSource
         team.setImageId(cursor.getInt(6));
         return team;
     }
+
+    public Team lookup(String code)
+    {
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_TEAMS, allColumns, MySQLiteHelper.COLUMN_SHORTNAME+ " = \'"+code+"\'",null,null,null,null);
+        cursor.moveToFirst();
+        if(cursor.getCount()==0)
+            return null;
+
+        Team team = cursorToTeam(cursor);
+        cursor.close();
+        return team;
+    }
 }

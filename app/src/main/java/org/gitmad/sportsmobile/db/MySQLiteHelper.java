@@ -105,6 +105,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
                 +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
                 +") VALUES ("
+                +"\"Cincinatti Bengals\", \"CIN\", \"AFC NORTH\",\"Pittsburgh, PA\", "+ Color.parseColor("#FBA000")+", "+ R.drawable.bengals+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
                 +"\"Houston Texans\", \"HOU\", \"AFC SOUTH\",\"Houston, TX\", "+ Color.parseColor("#06192E")+", "+ R.drawable.texans+"); ");
 
         sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
@@ -115,7 +120,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
                 +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
                 +") VALUES ("
-                +"\"Jacksonville Jaguars\", \"JAX\", \"AFC South\",\"Jacksonville, FL\", "+ Color.parseColor("#0F445D")+", "+ R.drawable.jaguars+"); ");
+                +"\"Jacksonville Jaguars\", \"JAC\", \"AFC South\",\"Jacksonville, FL\", "+ Color.parseColor("#0F445D")+", "+ R.drawable.jaguars+"); ");
 
         sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
                 +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
@@ -125,13 +130,123 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
                 +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
                 +") VALUES ("
-                +"\"Baltimore Ravens\", \"BAL\", \"AFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.ravens+"); ");
+                +"\"Buffalo Bills\", \"BUF\", \"AFC EAST\",\"Buffalo, NY\", "+ Color.parseColor("#194787")+", "+ R.drawable.bills+"); ");
 
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Miami Dolphins\", \"MIA\", \"AFC EAST\",\"Miami, FL\", "+ Color.parseColor("#0B7B7C")+", "+ R.drawable.dolphins+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"New England Patriots\", \"NE\", \"AFC EAST\",\"Foxborough, MA\", "+ Color.parseColor("#113E90")+", "+ R.drawable.patriots+"); ");
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"New York Jets\", \"NYJ\", \"AFC EAST\",\"East Rutherford, NY\", "+ Color.parseColor("#15684C")+", "+ R.drawable.jets+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Denver Broncos\", \"DEN\", \"AFC WEST\",\"Denver, CO\", "+ Color.parseColor("#141F94")+", "+ R.drawable.broncos+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Kansas City Chiefs\", \"KC\", \"AFC WEST\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.chiefs+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Oakland Raiders\", \"OAK\", \"AFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.raiders+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"San Diego Chargers\", \"SD\", \"AFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.chargers+"); ");
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Dallas Cowboys\", \"DAL\", \"NFC EAST\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.cowboys+"); ");
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"New York Giants\", \"NYG\", \"NFC EAST\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.giants+"); ");
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Philadelphia Eagles\", \"PHI\", \"NFC EAST\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.eagles+"); ");
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Washington Redskins\", \"WAS\", \"NFC EAST\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.redskins+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Chicago Bears\", \"CHI\", \"NFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.bears+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Detroit Lions\", \"DET\", \"NFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.lions+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Green Bay Packers\", \"GB\", \"NFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.packers+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Minnesota Vikings\", \"MIN\", \"NFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.vikings+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Atlanta Falcons\", \"ATL\", \"NFC SOUTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.falcons+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Carolina Panthers\", \"CAR\", \"NFC SOUTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.panthers+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"New Orleans Saints\", \"NO\", \"NFC SOUTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.saints+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Tampa Bay Buccaneers\", \"TB\", \"NFC SOUTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.buccaneers+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Arizona Cardinals\", \"ARI\", \"NFC WEST\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.cardinals+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"San Francisco 49ers\", \"SF\", \"NFC WEST\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.forty_niners+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"Seattle Seahawks\", \"SEA\", \"AFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.seahawks+"); ");
+
+        sqLiteDatabase.execSQL("INSERT INTO "+TABLE_TEAMS
+                +" ("+COLUMN_LONGNAME+", "+COLUMN_SHORTNAME+", "+COLUMN_CONFERENCE+", "+COLUMN_HOMETOWN+", "+COLUMN_COLOR+", "+COLUMN_IMAGEID
+                +") VALUES ("
+                +"\"St. Louis Rams\", \"STL\", \"AFC NORTH\",\"Baltimore, MD\", "+ Color.parseColor("#141F94")+", "+ R.drawable.rams+"); ");
 
         /*Team ravens = new Team("Baltimore Ravens", "BAL", "AFC North", "Baltimore, MD",
                 Color.parseColor("#141F94"));
         ravens.setImageId(R.drawable.ravens);
-        Team bengals = new Team("Cincinnati Bengals", "CIN", "AFC North", "Cincinatti, OH",
+        Team bengals = new Team("Cinc
+        innati Bengals", "CIN", "AFC North", "Cincinatti, OH",
                 Color.parseColor("#F04D22"));
         bengals.setImageId(R.drawable.bengals);
         Team browns = new Team("Cleveland Browns", "CLE", "AFC North", "Cleveland, OH",

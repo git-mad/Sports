@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-import org.gitmad.sportsmobile.LoginActivity;
 import org.gitmad.sportsmobile.R;
 import org.gitmad.sportsmobile.fragment.GameFragment;
 

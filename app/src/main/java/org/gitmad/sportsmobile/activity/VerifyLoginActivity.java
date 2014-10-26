@@ -1,4 +1,4 @@
-package org.gitmad.sportsmobile;
+package org.gitmad.sportsmobile.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.gitmad.sportsmobile.R;
 
 
 public class VerifyLoginActivity extends Activity {
