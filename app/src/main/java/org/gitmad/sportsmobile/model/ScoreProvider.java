@@ -1,33 +1,33 @@
 package org.gitmad.sportsmobile.model;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.gitmad.sportsmobile.net.NflDataSource;
 
-import java.util.Dictionary;
 import java.util.Hashtable;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 
-/**
- * Created by Alex on 10/19/2014.
- */
 public class ScoreProvider
 {
-    NflDataSource dataSource;
+    private static final String ENDPOINT = "http://www.nfl.com";
 
-    public ScoreProvider()
+    private NflDataSource dataSource;
+
+    public ScoreProvider(Context context)
     {
 
         GsonBuilder builder = new GsonBuilder();
-        builder.registerTypeAdapter(Game.class, new GameDeserializer());
+        builder.registerTypeAdapter(Game.class, new GameDeserializer(context));
         Gson gson = builder.create();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint("http://www.nfl.com")
+                .setEndpoint(ENDPOINT)
                 .setConverter(new GsonConverter(gson))
                 .build();
         dataSource = restAdapter.create(NflDataSource.class);

@@ -1,8 +1,8 @@
 package org.gitmad.sportsmobile.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,8 +11,7 @@ import android.widget.RadioGroup;
 
 import org.gitmad.sportsmobile.R;
 
-
-public class LoginActivity extends Activity {
+public class LoginActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,10 @@ public class LoginActivity extends Activity {
                 verifyIntent.putExtra("Email Address", emailAddress.getText().toString());
                 verifyIntent.putExtra("Name", name.getText().toString());
                 verifyIntent.putExtra("Age", age.getText().toString());
-                verifyIntent.putExtra("Gender", ((RadioButton) findViewById(genderGroup.getCheckedRadioButtonId())).getText().toString());
+                final String gender = genderGroup.getCheckedRadioButtonId() >= 0
+                        ? ((RadioButton) findViewById(genderGroup.getCheckedRadioButtonId()))
+                        .getText().toString() : "";
+                verifyIntent.putExtra("Gender", gender);
 
                 startActivity(verifyIntent);
             }

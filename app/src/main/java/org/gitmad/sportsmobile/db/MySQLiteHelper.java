@@ -7,9 +7,6 @@ import android.graphics.Color;
 
 import org.gitmad.sportsmobile.R;
 
-/**
- * Created by Alex on 9/21/2014.
- */
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
 

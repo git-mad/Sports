@@ -1,6 +1,5 @@
 package org.gitmad.sportsmobile.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +20,7 @@ import com.viewpagerindicator.CirclePageIndicator;
 
 import org.gitmad.sportsmobile.R;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends ActionBarActivity {
 
     private static final String KEY_FIRST_TIME = "KEY_FIRST_TIME";
 
