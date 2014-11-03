@@ -7,6 +7,12 @@ local.properties
 default.properties
 gen-external-apklibs
 
+#Added Projects
+viewpagerindicator
+#keep jars in the libs folder
+libs/*
+!libs/*.jar
+
 # Gradle
 .gradle
 /local.properties
