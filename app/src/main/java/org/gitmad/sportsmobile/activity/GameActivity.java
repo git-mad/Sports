@@ -5,14 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import com.parse.Parse;
+import com.parse.PushService;
+
 import org.gitmad.sportsmobile.R;
 import org.gitmad.sportsmobile.fragment.GameFragment;
+
 
 public class GameActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_game);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()

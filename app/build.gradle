@@ -24,4 +24,7 @@ dependencies {
     compile 'com.android.support:support-v4:20.0.0'
     compile project(':viewpagerindicator')
     compile 'com.squareup.retrofit:retrofit:1.7.0'
+    compile 'com.parse.bolts:bolts-android:1.1.2'
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+    compile files('C:/Users/Andre/Documents/GitHub/Sports/libs/Parse-1.7.1/Parse-1.7.1.jar')
 }
