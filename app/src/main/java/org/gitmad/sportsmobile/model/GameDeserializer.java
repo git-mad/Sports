@@ -1,23 +1,26 @@
 package org.gitmad.sportsmobile.model;
 
+import android.content.Context;
+
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
-import org.gitmad.sportsmobile.SportsApplication;
 import org.gitmad.sportsmobile.db.TeamsDataSource;
-import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.sql.SQLException;
 
-/**
- * Created by Alex on 10/19/2014.
- */
 public class GameDeserializer implements JsonDeserializer<Game>
 {
+
+    private final Context mContext;
+
+    public GameDeserializer(Context context) {
+        mContext = context;
+    }
 
     @Override
     public Game deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
@@ -48,19 +51,16 @@ public class GameDeserializer implements JsonDeserializer<Game>
 
         Team homeTeam = null;
         Team awayTeam = null;
-        TeamsDataSource teamDs = new TeamsDataSource(SportsApplication.getAppContext());
+        TeamsDataSource teamDs = new TeamsDataSource(mContext);
         try {
             teamDs.open();
              homeTeam = teamDs.lookup(root.getAsJsonObject("home").get("abbr").getAsString());
             awayTeam = teamDs.lookup(root.getAsJsonObject("away").get("abbr").getAsString());
             teamDs.close();
         }
-        catch(SQLException sqex){}
+        catch(SQLException sqex){sqex.printStackTrace();}
         catch(Exception ex){ex.printStackTrace();}
 
-        Game game = new Game(homeTeam, awayTeam, homeScore, awayScore, clock);
-
-        return game;
-
+        return new Game(homeTeam, awayTeam, homeScore, awayScore, clock);
     }
 }

@@ -12,9 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alex on 9/21/2014.
- */
 public class TeamsDataSource
 {
     private SQLiteDatabase database;

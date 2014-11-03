@@ -2,16 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.gitmad.sportsmobile" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/GameListTheme"
-        android:name="org.gitmad.sportsmobile.SportsApplication">
+        android:theme="@style/GameListTheme">
         <activity
             android:name=".activity.SplashActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,6 +32,4 @@
             android:label="@string/title_activity_verify_login" >
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

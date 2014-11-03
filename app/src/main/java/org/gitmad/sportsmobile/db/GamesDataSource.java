@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import org.gitmad.sportsmobile.model.Game;
 import org.gitmad.sportsmobile.model.Team;
@@ -13,9 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alex on 9/21/2014.
- */
 public class GamesDataSource
 {
     private SQLiteDatabase database;

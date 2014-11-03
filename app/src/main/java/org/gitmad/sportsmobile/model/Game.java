@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * Holds information for a game.
- * Created by Andre Giron on 9/6/14.
  */
 public class Game implements Parcelable {
 

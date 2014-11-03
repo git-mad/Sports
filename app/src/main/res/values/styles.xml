@@ -1,9 +1,8 @@
 <resources>
 
-    <style name="GameListTheme" parent="GameListThemeBase">
-    </style>
-
-    <style name="GameListThemeBase" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="GameListTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/sports_orange</item>
+        <item name="colorPrimaryDark">@color/sports_orange_dark</item>
     </style>
 
 </resources>
