@@ -7,6 +7,9 @@ local.properties
 default.properties
 gen-external-apklibs
 
+#Added Projects
+viewpagerindicator
+
 # Gradle
 .gradle
 /local.properties
