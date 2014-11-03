@@ -9,9 +9,12 @@ gen-external-apklibs
 
 #Added Projects
 viewpagerindicator
+<<<<<<< HEAD
 #keep jars in the libs folder
 libs/*
 !libs/*.jar
+=======
+>>>>>>> c6b38da7feb341af13e3f1b9670fd9a1b7dcecbf
 
 # Gradle
 .gradle
