@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merger version="2" >
 
-    <dataSet config="20.0.0" >
-        <source path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\res" />
+    <dataSet config="21.0.0" >
+        <source path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\res" />
     </dataSet>
     <dataSet config="main" >
-        <source path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res" >
+        <source path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res" >
             <file
                 name="vpi__dark_theme"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\color\vpi__dark_theme.xml"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\color\vpi__dark_theme.xml"
                 qualifiers=""
                 type="color" />
             <file
                 name="vpi__light_theme"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\color\vpi__light_theme.xml"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\color\vpi__light_theme.xml"
                 qualifiers=""
                 type="color" />
             <file
                 name="vpi__tab_indicator"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable\vpi__tab_indicator.xml"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable\vpi__tab_indicator.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="vpi__tab_selected_focused_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_selected_focused_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_selected_focused_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_selected_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_selected_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_pressed_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_selected_pressed_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_selected_pressed_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_focused_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_unselected_focused_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_unselected_focused_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_unselected_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_unselected_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_pressed_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_unselected_pressed_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-hdpi\vpi__tab_unselected_pressed_holo.9.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_focused_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_selected_focused_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_selected_focused_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_selected_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_selected_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_pressed_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_selected_pressed_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_selected_pressed_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_focused_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_unselected_focused_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_unselected_focused_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_unselected_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_unselected_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_pressed_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_unselected_pressed_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-mdpi\vpi__tab_unselected_pressed_holo.9.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_focused_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_selected_focused_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_selected_focused_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_selected_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_selected_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_selected_pressed_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_selected_pressed_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_selected_pressed_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_focused_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_unselected_focused_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_unselected_focused_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_unselected_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_unselected_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="vpi__tab_unselected_pressed_holo"
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_unselected_pressed_holo.9.png"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\drawable-xhdpi\vpi__tab_unselected_pressed_holo.9.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\values\vpi__attrs.xml"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\values\vpi__attrs.xml"
                 qualifiers="" >
                 <attr
                     name="centered"
@@ -299,7 +299,7 @@
                 </declare-styleable>
             </file>
             <file
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\values\vpi__colors.xml"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\values\vpi__colors.xml"
                 qualifiers="" >
                 <color name="vpi__bright_foreground_holo_dark" >@color/vpi__background_holo_light
                 </color>
@@ -319,7 +319,7 @@
                 </color>
             </file>
             <file
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\values\vpi__defaults.xml"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\values\vpi__defaults.xml"
                 qualifiers="" >
                 <dimen name="default_circle_indicator_radius" >3dp
                 </dimen>
@@ -419,7 +419,7 @@ true
                 </color>
             </file>
             <file
-                path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\res\values\vpi__styles.xml"
+                path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\res\values\vpi__styles.xml"
                 qualifiers="" >
 
                 <style
@@ -491,11 +491,11 @@ bold
                 </style>
             </file>
         </source>
-        <source path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\build\generated\res\rs\release" />
-        <source path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\build\generated\res\generated\release" />
+        <source path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\build\generated\res\rs\release" />
+        <source path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\build\generated\res\generated\release" />
     </dataSet>
     <dataSet config="release" >
-        <source path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\release\res" />
+        <source path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\release\res" />
     </dataSet>
 
 </merger>

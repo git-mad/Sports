@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\main\assets" />
+        <source path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\main\assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="C:\Users\Jason\Documents\Github\Sports\viewpagerindicator\src\release\assets" />
+        <source path="C:\Users\Eric\AndroidStudioProjects\Sports\viewpagerindicator\src\release\assets" />
     </dataSet>
 
 </merger>
