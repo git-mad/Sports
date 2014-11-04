@@ -20,6 +20,7 @@ import org.gitmad.sportsmobile.model.Team;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class GameAdapter extends ArrayAdapter<Game> {
 
@@ -42,8 +43,7 @@ public class GameAdapter extends ArrayAdapter<Game> {
     @Override
     public View getView(final int position, View convertView, final ViewGroup parent) {
         final Game game = mGameList.get(position);
-        final Team homeTeam = game.getHomeTeam();
-        final Team awayTeam = game.getAwayTeam();
+        final Map<Team, Integer> teamScoreMap = game.getTeamScoreMap();
         final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         final ViewHolder holder;
         if (convertView == null) {
@@ -55,40 +55,25 @@ public class GameAdapter extends ArrayAdapter<Game> {
         }
 
         ((ViewGroup) convertView).removeAllViews();
-        final List<View> viewList = new ArrayList<View>(2);
-        for (int i=0; i<2; i++) {
-            final View view = layoutInflater.inflate(R.layout.game_item,
-                    (ViewGroup) convertView, false);
-            viewList.add(view);
-            ((ViewGroup) convertView).addView(view);
-        }
-
-
 
         final StringBuilder teamNamesBuilder = new StringBuilder();
-        final int[] colors = new int[2];
+        final int[] colors = new int[teamScoreMap.size()];
 
-        View view = viewList.get(0);
-        TextView teamName = (TextView) view.findViewById(R.id.team_name);
-        ImageView teamLogo = (ImageView) view.findViewById(R.id.team_logo);
-        TextView teamScore = (TextView) view.findViewById(R.id.score);
-        teamName.setText(homeTeam.getLongName());
-        teamLogo.setImageResource(homeTeam.getImageId());
-        teamScore.setText(Integer.toString(game.getHomeScore()));
-        teamNamesBuilder.append(homeTeam.getLongName());
-        teamNamesBuilder.append(" ");
-        colors[0] = homeTeam.getPrimaryColor();
-
-        view = viewList.get(1);
-        teamName = (TextView) view.findViewById(R.id.team_name);
-        teamLogo = (ImageView) view.findViewById(R.id.team_logo);
-        teamScore = (TextView) view.findViewById(R.id.score);
-        teamName.setText(awayTeam.getLongName());
-        teamScore.setText(Integer.toString(game.getAwayScore()));
-        teamLogo.setImageResource(awayTeam.getImageId());
-        teamNamesBuilder.append(awayTeam.getLongName());
-        teamNamesBuilder.append(" ");
-        colors[1] = awayTeam.getPrimaryColor();
+        int i = 0;
+        for (Team team : teamScoreMap.keySet()) {
+            final View view = layoutInflater.inflate(R.layout.game_item,
+                    (ViewGroup) convertView, false);
+            ((ViewGroup) convertView).addView(view);
+            final TextView teamName = (TextView) view.findViewById(R.id.team_name);
+            final ImageView teamLogo = (ImageView) view.findViewById(R.id.team_logo);
+            final TextView teamScore = (TextView) view.findViewById(R.id.score);
+            teamName.setText(team.getLongName());
+            teamLogo.setImageResource(team.getImageId());
+            teamScore.setText(String.valueOf(teamScoreMap.get(team)));
+            teamNamesBuilder.append(team.getLongName());
+            teamNamesBuilder.append(" ");
+            colors[i++] = team.getPrimaryColor();
+        }
 
         final StateListDrawable sld = new StateListDrawable();
         final GradientDrawable gradientDrawable = new GradientDrawable();
