@@ -3,6 +3,7 @@ package org.gitmad.sportsmobile.appwidget;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -25,20 +26,26 @@ import retrofit.client.Response;
 
 public class SportsWidget  extends AppWidgetProvider {
 
-    private static final String ACTION_CLICK_TO_NEXT = "ACTION_CLICK_TO_NEXT";
-
-    private int mGameNum = 0;
+    private static final String ACTION_APPWIDGET_ADVANCE = "ACTION_APPWIDGET_ADVANCE";
+    private static final String EXTRA_GAME_NUM = "EXTRA_GAME_NUM";
 
     @Override
     public void onUpdate(final Context context,
                          final AppWidgetManager appWidgetManager,
                          final int[] appWidgetIds) {
+        networkCallGames(context, appWidgetManager, appWidgetIds, 0);
+    }
 
+    private void networkCallGames(final Context context,
+                                  final AppWidgetManager appWidgetManager,
+                                  final int[] appWidgetIds,
+                                  final int gameNum) {
         final ScoreProvider scoreProvider = new ScoreProvider(context);
         scoreProvider.listGames(new Callback<Hashtable<String, Game>>() {
             @Override
             public void success(Hashtable<String, Game> stringGameDictionary, Response response) {
                 updateGames(new ArrayList<Game>(stringGameDictionary.values()),
+                        gameNum,
                         context,
                         appWidgetManager,
                         appWidgetIds);
@@ -52,17 +59,19 @@ public class SportsWidget  extends AppWidgetProvider {
     }
 
     private void updateGames(final List<Game> gameList,
+                             final int gameNum,
                              final Context context,
                              final AppWidgetManager appWidgetManager,
                              final int[] appWidgetIds) {
 
-        final Game game = gameList.get(mGameNum % gameList.size());
+        final Game game = gameList.get(gameNum % gameList.size());
 
         for (int appWidgetId : appWidgetIds) {
             final RemoteViews views = new RemoteViews(context.getPackageName(),
                     R.layout.game_row);
+            views.removeAllViews(R.id.game_row_layout);
 
-            Map<Team, Integer> teamScoreMap = game.getTeamScoreMap();
+            final Map<Team, Integer> teamScoreMap = game.getTeamScoreMap();
 
             for (Team team : teamScoreMap.keySet()) {
                 final RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
@@ -73,9 +82,12 @@ public class SportsWidget  extends AppWidgetProvider {
                 remoteViews.setTextViewText(R.id.score, String.valueOf(teamScoreMap.get(team)));
             }
 
-            final Intent intent = new Intent(context, SportsWidget.class);
-            intent.setAction(ACTION_CLICK_TO_NEXT);
-            final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+            final Intent advanceIntent = new Intent(context, SportsWidget.class);
+            advanceIntent.setAction(ACTION_APPWIDGET_ADVANCE);
+            advanceIntent.putExtra(EXTRA_GAME_NUM, gameNum + 1);
+            // use unique request code to prevent reuse of Intent
+            final PendingIntent pendingIntent
+                    = PendingIntent.getBroadcast(context, gameNum, advanceIntent, 0);
             views.setOnClickPendingIntent(R.id.game_row_layout, pendingIntent);
 
             appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -84,11 +96,13 @@ public class SportsWidget  extends AppWidgetProvider {
 
     @Override
     public void onReceive(@NonNull Context context, @NonNull Intent intent) {
-        if (ACTION_CLICK_TO_NEXT.equals(intent.getAction())) {
-            mGameNum++;
-            final Intent updateIntent = new Intent(context, SportsWidget.class);
-            updateIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-            context.sendBroadcast(updateIntent);
+        if (ACTION_APPWIDGET_ADVANCE.equals(intent.getAction())) {
+            final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            final ComponentName sportsWidget = new ComponentName(context.getPackageName(),
+                    SportsWidget.class.getName());
+            final int[] appWidgetIds = appWidgetManager.getAppWidgetIds(sportsWidget);
+            networkCallGames(context, appWidgetManager, appWidgetIds,
+                    intent.getIntExtra(EXTRA_GAME_NUM, 0));
         } else {
             super.onReceive(context, intent);
         }
