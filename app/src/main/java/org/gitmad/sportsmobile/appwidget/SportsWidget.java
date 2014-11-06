@@ -64,6 +64,7 @@ public class SportsWidget  extends AppWidgetProvider {
                              final AppWidgetManager appWidgetManager,
                              final int[] appWidgetIds) {
 
+        if (gameList.size() <= 0) return;
         final Game game = gameList.get(gameNum % gameList.size());
 
         for (int appWidgetId : appWidgetIds) {
