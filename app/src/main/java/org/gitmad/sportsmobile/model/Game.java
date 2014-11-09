@@ -4,13 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Holds information for a game.
  */
 public class Game implements Parcelable {
-
 
     private long id;
 
@@ -21,8 +22,6 @@ public class Game implements Parcelable {
 
     private final Team homeTeam;
     private final Team awayTeam;
-
-
 
     public Game(final Team homeTeam, final Team awayTeam,
                  final int homeScore, final int awayScore,
@@ -35,6 +34,7 @@ public class Game implements Parcelable {
     }
 
     public long getId() {return id;}
+
     public int getHomeScore()
     {
         return this.homeScore;
@@ -70,11 +70,11 @@ public class Game implements Parcelable {
         return this.awayTeam;
     }
 
-    public List<Team> getTeamList() {
-        List<Team> teamList = new ArrayList<Team>(2);
-        teamList.add(homeTeam);
-        teamList.add(awayTeam);
-        return teamList;
+    public Map<Team, Integer> getTeamScoreMap() {
+        final Map<Team, Integer> teamScoreMap = new HashMap<Team, Integer>(2);
+        teamScoreMap.put(homeTeam, homeScore);
+        teamScoreMap.put(awayTeam, awayScore);
+        return teamScoreMap;
     }
 
     @Override
