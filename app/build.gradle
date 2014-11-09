@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "org.gitmad.sportsmobile"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 20
         versionCode 1
         versionName "1.0"
@@ -22,9 +22,10 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:20.0.0'
-    compile project(':viewpagerindicator')
     compile 'com.squareup.retrofit:retrofit:1.7.0'
     compile 'com.parse.bolts:bolts-android:1.1.2'
-    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
-    compile files('C:/Users/Andre/Documents/GitHub/Sports/libs/Parse-1.7.1/Parse-1.7.1.jar')
+    compile fileTree(dir: 'libs/Parse-1.7.1/', include: ['*.jar'])
+    compile files('/Users/andre/Desktop/GITMADSports/Sports/libs/Parse-1.7.1/Parse-1.7.1.jar')
+    compile project(':viewpagerindicator')
+
 }

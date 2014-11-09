@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-import com.parse.Parse;
-import com.parse.PushService;
-
 import org.gitmad.sportsmobile.R;
 import org.gitmad.sportsmobile.fragment.GameFragment;
 

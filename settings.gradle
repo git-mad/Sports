@@ -1,2 +1,3 @@
-include ':app'
+include ':app', ':tv2'
 include ':viewpagerindicator'
+project(':tv2').projectDir = new File('tv')
