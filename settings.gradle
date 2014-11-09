@@ -1,2 +1,2 @@
-include ':app', ':tv'
+include ':app', ':tv', ':wear'
 include ':viewpagerindicator'
