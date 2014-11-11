@@ -19,6 +19,9 @@ https://docs.google.com/presentation/d/1dpgZ96COrnbEkei45K1o82Ojymx1M-9i4Fk6FAZb
 5. Input Controls and Events:
 https://docs.google.com/presentation/d/1ZDReCRJsDU3v8Z2lKmyU_CTsJSg4smfPtFmV8qNSEZs/edit?usp=sharing
 
+6. Push Notifications Using Parse:
+https://docs.google.com/presentation/d/1X0eCzYs9kHkk9i718jgHK3w9ExKwWAquZkZu4kK0W8E/edit?usp=sharing
+
 Contributing:
 -Pull latest changes from master
 git pull origin master
