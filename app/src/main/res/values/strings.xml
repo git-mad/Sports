@@ -3,6 +3,7 @@
 
     <string name="app_name">Sports</string>
     <string name="action_login">Login</string>
+    <string name="action_wear_sensors">Wear Sensors</string>
     <string name="splash_text_0">Hiya, and welcome to the best <b>Sports</b> experience ever!
         \nSwipe to get started.</string>
     <string name="splash_text_1">Find and follow your favorite teams.

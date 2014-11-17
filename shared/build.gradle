@@ -1,12 +1,12 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 21
     buildToolsVersion "21.0.2"
 
     defaultConfig {
-        applicationId "org.gitmad.sportsmobile"
-        minSdkVersion 20
+        applicationId "org.gitmad.sportsmobile.shared"
+        minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -20,7 +20,5 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.support:wearable:1.0.+'
-    compile 'com.google.android.gms:play-services-wearable:6.1.+'
-    compile project(':shared')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 }

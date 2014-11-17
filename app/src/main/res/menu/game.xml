@@ -5,6 +5,12 @@
 
     <item android:id="@+id/action_login"
         android:title="@string/action_login"
-        sports:showAsAction="ifRoom|withText"/>
+        sports:showAsAction="ifRoom|withText"
+        android:orderInCategory="10"/>
+
+    <item android:id="@+id/action_wear_sensors"
+        android:title="@string/action_wear_sensors"
+        sports:showAsAction="ifRoom|withText"
+        android:orderInCategory="100"/>
 
 </menu>
