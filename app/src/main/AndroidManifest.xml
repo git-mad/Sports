@@ -20,6 +20,9 @@
         android:label="@string/app_name"
         android:theme="@style/GameListTheme"
         android:name=".SportsApplication">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
         <activity
             android:name=".activity.SplashActivity"
             android:label="@string/app_name"
@@ -81,5 +84,8 @@
             <meta-data android:name="android.appwidget.provider"
                 android:resource="@xml/sportswidget_info" />
         </receiver>
+
+        <!-- wear sensors -->
+        <activity android:name=".wearreceiver.SensorReceiverActivity" />
     </application>
 </manifest>

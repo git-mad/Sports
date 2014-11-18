@@ -17,6 +17,7 @@ import org.gitmad.sportsmobile.activity.LoginActivity;
 import org.gitmad.sportsmobile.adapter.GameAdapter;
 import org.gitmad.sportsmobile.model.Game;
 import org.gitmad.sportsmobile.model.ScoreProvider;
+import org.gitmad.sportsmobile.wearreceiver.SensorReceiverActivity;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -75,6 +76,9 @@ public class GameFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.action_login:
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+                return true;
+            case R.id.action_wear_sensors:
+                startActivity(new Intent(getActivity(), SensorReceiverActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
