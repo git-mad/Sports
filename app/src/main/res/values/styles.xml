@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="GameListTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="GameListTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/sports_orange</item>
         <item name="colorPrimaryDark">@color/sports_orange_dark</item>
     </style>
