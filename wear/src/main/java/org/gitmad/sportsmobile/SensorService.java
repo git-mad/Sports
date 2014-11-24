@@ -60,7 +60,6 @@ public class SensorService extends Service implements SensorEventListener {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            android.util.Log.d("eric", "eric BROADCAST RECEIVED");
             final int filterById = intent.getIntExtra(EXTRA_FILTER_BY_ID, -1);
             client.setSensorFilter(filterById);
         }

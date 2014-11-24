@@ -15,4 +15,19 @@
 
     <string name="notification_alert_default">Sports Alert</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_checkbox_text">Awesome Mode</string>
+
+    <string name="game_list_title">Game List</string>
+    <string name="login_title">Login</string>
+    <string name="sensor_receiver_title">Sensor Receiver</string>
+
+    <string-array name="section_names">
+        <item>@string/game_list_title</item>
+        <item>@string/login_title</item>
+        <item>@string/sensor_receiver_title</item>
+    </string-array>
+
 </resources>

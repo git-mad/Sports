@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="GameListTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="AppThemeBase">
         <item name="colorPrimary">@color/sports_orange</item>
         <item name="colorPrimaryDark">@color/sports_orange_dark</item>
     </style>
@@ -8,6 +8,9 @@
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/sports_green</item>
         <item name="colorPrimaryDark">@color/sports_green_dark</item>
+    </style>
+
+    <style name="AppThemeBase" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
 
 </resources>

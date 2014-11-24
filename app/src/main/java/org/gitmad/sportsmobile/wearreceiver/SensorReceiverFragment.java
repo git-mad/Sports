@@ -1,8 +1,8 @@
 package org.gitmad.sportsmobile.wearreceiver;
 
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -15,57 +15,64 @@ import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.DataMapItem;
 import com.google.android.gms.wearable.Wearable;
 
+import org.gitmad.sportsmobile.R;
+import org.gitmad.sportsmobile.TitleGettable;
 import org.gitmad.sportsmobile.wearreceiver.data.Sensor;
 import org.gitmad.sportsmobile.wearreceiver.data.SensorDataPoint;
 import org.gitmad.sportsshared.DataMapKeys;
 
 import java.util.Arrays;
 
-public class SensorReceiverActivity extends ActionBarActivity
-        implements DataApi.DataListener, GoogleApiClient.ConnectionCallbacks,
+public class SensorReceiverFragment extends Fragment
+        implements TitleGettable, DataApi.DataListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
+
     private static final String TAG = "SensorSports";
     private GoogleApiClient mGoogleApiClient;
 
     private RemoteSensorManager sensorManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int getTitleResource() {
+        return R.string.sensor_receiver_title;
+    }
 
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addApi(Wearable.API)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
 
-
-        sensorManager = new RemoteSensorManager(this);
+        sensorManager = new RemoteSensorManager(getActivity());
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
 
         mGoogleApiClient.connect();
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
 
         sensorManager.startMeasurement();
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
 
         sensorManager.stopMeasurement();
     }
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
 
         if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
