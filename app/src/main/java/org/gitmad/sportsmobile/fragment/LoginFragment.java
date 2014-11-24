@@ -25,21 +25,12 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRetainInstance(true);
-    }
-
-    private View root;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if (root != null) return root;
-
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_login, container, false);
+        final View root = inflater.inflate(R.layout.fragment_login, container, false);
 
         final Intent verifyIntent = new Intent(getActivity(), VerifyLoginActivity.class);
 

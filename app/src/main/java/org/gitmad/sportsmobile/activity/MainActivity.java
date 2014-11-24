@@ -59,23 +59,18 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager manager = getFragmentManager();
+        Fragment activeFragment = null;
         if (position == 0) {
-            manager.beginTransaction()
-            .replace(R.id.container, new GameFragment())
-            .commit();
+            activeFragment = new GameFragment();
         } else if (position == 1) {
-            Fragment frag = manager.findFragmentByTag(getString(R.string.login_frag_tag));
-            manager.beginTransaction()
-                    .replace(R.id.container, frag == null ? new LoginFragment() : frag, getString(R.string.login_frag_tag))
-                    .addToBackStack(getString(R.string.login_frag_tag))
-                    .commit();
+            activeFragment = new LoginFragment();
         } else if (position == 2) {
-            manager.beginTransaction()
-                    .replace(R.id.container, new WearFragment())
-                    .commit();
+            activeFragment = new WearFragment();
         }
 
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, activeFragment)
+                .commit();
         onSectionAttached(position);
     }
 
