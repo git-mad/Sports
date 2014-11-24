@@ -1,13 +1,9 @@
-package org.gitmad.sportsmobile.fragment;
+package org.gitmad.sportsmobile.wearreceiver;
 
-
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -20,29 +16,30 @@ import com.google.android.gms.wearable.DataMapItem;
 import com.google.android.gms.wearable.Wearable;
 
 import org.gitmad.sportsmobile.R;
-import org.gitmad.sportsmobile.wearreceiver.RemoteSensorManager;
+import org.gitmad.sportsmobile.TitleGettable;
 import org.gitmad.sportsmobile.wearreceiver.data.Sensor;
 import org.gitmad.sportsmobile.wearreceiver.data.SensorDataPoint;
 import org.gitmad.sportsshared.DataMapKeys;
 
 import java.util.Arrays;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class WearFragment extends Fragment implements DataApi.DataListener, GoogleApiClient.ConnectionCallbacks,
+public class SensorReceiverFragment extends Fragment
+        implements TitleGettable, DataApi.DataListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
+    private static final String TAG = "SensorSports";
+    private GoogleApiClient mGoogleApiClient;
 
-    public WearFragment() {
-        // Required empty public constructor
-    }
-
+    private RemoteSensorManager sensorManager;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public int getTitleResource() {
+        return R.string.sensor_receiver_title;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addApi(Wearable.API)
@@ -50,14 +47,8 @@ public class WearFragment extends Fragment implements DataApi.DataListener, Goog
                 .addOnConnectionFailedListener(this)
                 .build();
 
-
         sensorManager = new RemoteSensorManager(getActivity());
-        return inflater.inflate(R.layout.fragment_wear, container, false);
     }
-    private static final String TAG = "SensorSports";
-    private GoogleApiClient mGoogleApiClient;
-
-    private RemoteSensorManager sensorManager;
 
     @Override
     public void onStart() {
@@ -140,5 +131,4 @@ public class WearFragment extends Fragment implements DataApi.DataListener, Goog
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
-
 }

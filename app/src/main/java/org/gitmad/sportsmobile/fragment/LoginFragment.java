@@ -1,9 +1,8 @@
 package org.gitmad.sportsmobile.fragment;
 
-
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,67 +12,60 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import org.gitmad.sportsmobile.R;
+import org.gitmad.sportsmobile.TitleGettable;
 import org.gitmad.sportsmobile.activity.VerifyLoginActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements TitleGettable {
 
-
-    public LoginFragment() {
-        // Required empty public constructor
-    }
+    private EditText emailAddress;
+    private EditText name;
+    private EditText age;
+    private RadioGroup genderGroup;
+    private Button verifyInfo;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRetainInstance(true);
+    public int getTitleResource() {
+        return R.string.login_title;
     }
-
-    private View root;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if (root != null) return root;
+        final View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
-        // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_login, container, false);
+        emailAddress = (EditText) rootView.findViewById(R.id.ActivityLogin_EditText_EmailAddress);
+        name = (EditText) rootView.findViewById(R.id.ActivityLogin_EditText_Name);
+        age = (EditText) rootView.findViewById(R.id.ActivityLogin_EditText_Age);
+        genderGroup = (RadioGroup) rootView.findViewById(R.id.ActivityLogin_RadioGroup_Gender);
+        final RadioButton option1 = (RadioButton) genderGroup.findViewById(R.id.ActivityLogin_RadioButton_option1);
+        final RadioButton option2 = (RadioButton) genderGroup.findViewById(R.id.ActivityLogin_RadioButton_option2);
+        final RadioButton option3 = (RadioButton) genderGroup.findViewById(R.id.ActivityLogin_RadioButton_option3);
 
-        final Intent verifyIntent = new Intent(getActivity(), VerifyLoginActivity.class);
+        verifyInfo = (Button)
+                rootView.findViewById(R.id.ActivityLogin_Button_VerifyInfo);
 
-        final EditText emailAddress = (EditText) root.findViewById(R.id.ActivityLogin_EditText_EmailAddress);
-        final EditText name = (EditText) root.findViewById(R.id.ActivityLogin_EditText_Name);
-        final EditText age = (EditText) root.findViewById(R.id.ActivityLogin_EditText_Age);
-        final RadioGroup genderGroup = (RadioGroup) root.findViewById(R.id.ActivityLogin_RadioGroup_Gender);
-        final RadioButton option1 = (RadioButton) root.findViewById(R.id.ActivityLogin_RadioButton_option1);
-        final RadioButton option2 = (RadioButton) root.findViewById(R.id.ActivityLogin_RadioButton_option2);
-        final RadioButton option3 = (RadioButton) root.findViewById(R.id.ActivityLogin_RadioButton_option3);
+        return rootView;
+    }
 
-
-        final Button verifyInfo = (Button) root.findViewById(R.id.ActivityLogin_Button_VerifyInfo);
-
-
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         verifyInfo.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-
+                final Intent verifyIntent = new Intent(getActivity(), VerifyLoginActivity.class);
                 verifyIntent.putExtra("Email Address", emailAddress.getText().toString());
                 verifyIntent.putExtra("Name", name.getText().toString());
                 verifyIntent.putExtra("Age", age.getText().toString());
                 final String gender = genderGroup.getCheckedRadioButtonId() >= 0
-                        ? ((RadioButton) root.findViewById(genderGroup.getCheckedRadioButtonId()))
+                        ? ((RadioButton) genderGroup
+                        .findViewById(genderGroup.getCheckedRadioButtonId()))
                         .getText().toString() : "";
                 verifyIntent.putExtra("Gender", gender);
 
                 startActivity(verifyIntent);
             }
         });
-
-        return root;
     }
-
-
 }

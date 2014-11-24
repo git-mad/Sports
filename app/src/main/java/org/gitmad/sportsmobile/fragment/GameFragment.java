@@ -4,13 +4,12 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import org.gitmad.sportsmobile.R;
+import org.gitmad.sportsmobile.TitleGettable;
 import org.gitmad.sportsmobile.adapter.GameAdapter;
 import org.gitmad.sportsmobile.model.Game;
 import org.gitmad.sportsmobile.model.ScoreProvider;
@@ -22,7 +21,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class GameFragment extends Fragment {
+public class GameFragment extends Fragment implements TitleGettable {
 
     private ListView mListView;
     private GameAdapter mGameAdapter;
@@ -30,9 +29,13 @@ public class GameFragment extends Fragment {
     private ScoreProvider mScoreProvider;
 
     @Override
+    public int getTitleResource() {
+        return R.string.game_list_title;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
         mScoreProvider = new ScoreProvider(getActivity());
     }
 
@@ -61,29 +64,4 @@ public class GameFragment extends Fragment {
             }
         });
     }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    //Removing because navigation now occurs in navigationDrawer//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_login:
-//                startActivity(new Intent(getActivity(), LoginActivity.class));
-//                return true;
-//            case R.id.action_wear_sensors:
-//                startActivity(new Intent(getActivity(), SensorReceiverActivity.class));
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-//
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-//        menuInflater.inflate(R.menu.game, menu);
-//    }
 }

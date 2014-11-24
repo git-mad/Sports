@@ -6,5 +6,7 @@
     <color name="sports_orange_dark">#ef8307</color>
     <color name="sports_green">#3d8a0a</color>
     <color name="sports_green_dark">#1d6a0a</color>
+    <color name="nav_drawer">@color/sports_green</color>
+    <color name="nav_drawer_selected">@color/sports_orange</color>
 
 </resources>

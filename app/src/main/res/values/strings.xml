@@ -12,16 +12,22 @@
     <string name="splash_button_go">Let\'s Start</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_verify_login">VerifyLoginActivity</string>
+
     <string name="notification_alert_default">Sports Alert</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="login_frag_tag">login</string>
+
+    <string name="nav_checkbox_text">Awesome Mode</string>
+
+    <string name="game_list_title">Game List</string>
+    <string name="login_title">Login</string>
+    <string name="sensor_receiver_title">Sensor Receiver</string>
+
+    <string-array name="section_names">
+        <item>@string/game_list_title</item>
+        <item>@string/login_title</item>
+        <item>@string/sensor_receiver_title</item>
+    </string-array>
 
 </resources>
