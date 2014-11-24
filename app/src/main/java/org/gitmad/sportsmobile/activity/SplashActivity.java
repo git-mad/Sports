@@ -133,7 +133,7 @@ public class SplashActivity extends ActionBarActivity {
     }
 
     private void leave() {
-        startActivity(new Intent(this, GameActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 }
