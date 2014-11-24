@@ -94,9 +94,8 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(
+        mDrawerListView = (ListView) inflater.inflate(
                 R.layout.fragment_navigation_drawer, container, false);
-        mDrawerListView = (ListView) root.findViewById(R.id.navigation_drawer_listview);
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -113,7 +112,7 @@ public class NavigationDrawerFragment extends Fragment {
                         "Wear",
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
-        return root;
+        return mDrawerListView;
     }
 
     public boolean isDrawerOpen() {
